@@ -8,11 +8,12 @@ ix,iy = -1,-1
 # mouse callback function
 def draw_circle(event,x,y,flags,param):
     global ix,iy,drawing,mode
-
+    # 左クリックが押された時
     if event == cv2.EVENT_LBUTTONDOWN:
         drawing = True
         ix,iy = x,y
 
+    # マウスが動いている時
     elif event == cv2.EVENT_MOUSEMOVE:
         if drawing == True:
             if mode == True:
@@ -20,6 +21,7 @@ def draw_circle(event,x,y,flags,param):
             else:
                 cv2.circle(img,(x,y),5,(0,0,255),-1)
 
+    # 左クリックが離された時
     elif event == cv2.EVENT_LBUTTONUP:
         drawing = False
         if mode == True:

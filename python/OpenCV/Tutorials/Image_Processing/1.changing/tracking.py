@@ -5,7 +5,6 @@ import numpy as np
 cap = cv2.VideoCapture(0)
 
 while(1):
-
     # Take each frame
     # _は frame の読み込みが正しく行われれば True が返ってくる
     _, frame = cap.read()
