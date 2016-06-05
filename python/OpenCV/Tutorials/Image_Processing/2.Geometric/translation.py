@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
  
-image_path = "/Users/e145735/Documents/opencv_samples/"
+image_path = "FULL_PATH"
 
 img = cv2.imread(image_path + 'messi5.jpg')
 rows,cols,n = img.shape
