@@ -3,6 +3,7 @@ string_list = [s for s in input()]
 
 left = string_list[0]
 right = string_list[-1]
+print(string_list)
 
 if left == right:
 	if left == "w":
@@ -10,9 +11,11 @@ if left == right:
 	else :
 		print(length)
 else :
-	if string_list.count("w") > string_list.count("b"):
-		print(string_list.count("b")-1)
-	elif string_list.count("w") < string_list.count("b"):
-		print(string_list.count("b")+1)
-	elif string_list.count("w") == string_list.count("b"):
-		print(string_list.count("b"))
+	w = string_list.count("w")
+	b = string_list.count("b")
+	if w > b:
+		print(b - (b - w))
+	elif w < b:
+		print(b + (b - w))
+	elif w == b:
+		print(b)
