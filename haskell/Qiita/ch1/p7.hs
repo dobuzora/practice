@@ -7,12 +7,14 @@ import Data.Char
 -- main = do
 --   print $ rot13 "shintaro"
 
+-- 考え方は悪くなかったが、チェックができていなかった
 rot13ch ch
   | 'A' <= ch && ch <= 'M'
   || 'a' <= ch && ch <= 'm' = chr $ ord ch + 13
   | 'N' <= ch && ch <= 'Z'
   || 'n' <= ch && ch <= 'z' = chr $ ord ch - 13
   |otherwise = ch
+
 
 rot13 "" = ""
 rot13 (x:xs) = rot13ch x : rot13 xs
