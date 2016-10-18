@@ -14,4 +14,4 @@ f = open(args[1],'r')
 for line in f:
     print(line.replace('\t',' '),end="")
 
-
+f.close()

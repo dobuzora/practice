@@ -14,3 +14,5 @@ f = open(args[2],"r")
 
 for _ in range(int(args[1])):
     print(f.readline(),end="")
+
+f.close()

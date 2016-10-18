@@ -20,6 +20,7 @@ with open('col1.txt','w') as f1:
             line_list = line.split()
             f1.write(line_list[0] + "\n")
             f2.write(line_list[1] + "\n")
-
-
+f.close()
+f1.close()
+f2.close()
 

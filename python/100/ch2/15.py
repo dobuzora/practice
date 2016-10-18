@@ -22,3 +22,4 @@ with open(args[2],"r") as f:
         if (lines > count - int(args[1])):
             print(line,end="")
 
+f.close()

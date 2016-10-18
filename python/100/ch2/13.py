@@ -17,4 +17,6 @@ with open(args[2],"r") as f1:
         for _ in f:
             print(f1.readline().rstrip("\n") + " " + f2.readline().rstrip("\n"))
 
-
+f.close()
+f1.close()
+f2.close()
