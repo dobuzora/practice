@@ -11,6 +11,7 @@ import (
 func main() {
 	for _, url := range os.Args[1:] {
 		resp, err := http.Get(url)
+		fmt.Println(resp.Status)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "fetch:%v", err)
 			os.Exit(1)
