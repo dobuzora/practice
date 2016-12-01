@@ -23,7 +23,9 @@ var palette = []color.Color{color.White, green, red, blue}
 
 const (
 	whiteIndex = 0 // パレットの最初の色
-	blackIndex = 1 // パレットの次の色
+	greenIndex = 1 // パレットの次の色
+	redIndex   = 2
+	blueIndex  = 3
 )
 
 func main() {
@@ -48,7 +50,7 @@ func lissajous(out io.Writer) {
 		for t := 0.0; t < cycles*2*math.Pi; t += res {
 			x := math.Sin(t)
 			y := math.Sin(t*freq + phase)
-			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5), 1)
+			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5), uint8(rand.Int()%4))
 		}
 		phase += 0.1
 		anim.Delay = append(anim.Delay, delay)
