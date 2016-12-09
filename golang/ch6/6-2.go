@@ -1,5 +1,5 @@
-// s.AddAll(1,2,3) などのように値の知るとが追加可能である可変個引数(*IntSet).AddALL(...int) メソッドを定義しなさい
-package intset
+// s.AddAll(1,2,3) などのように値のリストが追加可能である可変個引数(*IntSet).AddALL(...int) メソッドを定義しなさい
+package prac
 
 import (
 	"bytes"
@@ -54,4 +54,10 @@ func (s *IntSet) String() string {
 	}
 	buf.WriteByte('}')
 	return buf.String()
+}
+
+func (s *IntSet) AddAll(x ...int) {
+	for _, num := range x {
+		s.Add(num)
+	}
 }

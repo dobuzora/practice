@@ -1,5 +1,5 @@
 // メソッドを追加しなさい
-package intset
+package prac
 
 import (
 	"bytes"
@@ -10,6 +10,7 @@ type IntSet struct {
 	words []uint64
 }
 
+// Has reports whether the set contains the non-negative value x.
 func (s *IntSet) Has(x int) bool {
 	word, bit := x/64, uint(x%64)
 	return word < len(s.words) && s.words[word]&(1<<bit) != 0
@@ -58,13 +59,30 @@ func (s *IntSet) String() string {
 
 // 課題用追加メソッド
 // 要素数を返します
-func (*IntSet) Len() int
+func (s *IntSet) Len() int {
+	return len(s.words)
+}
 
 // セットからxを取り除く
-func (*IntSet) Remove(x int)
+func (s *IntSet) Remove(x int) {
+	word, bit := x/64, uint(x%64)
+	if s.Has(x) {
+		s.words[word] ^= 1 << bit
+	}
+}
 
 // セットからすべての要素を取り除く
-func (*IntSet) Clear()
+func (s *IntSet) Clear() {
+	for i := 0; i < len(s.words); i++ {
+		s.words[i] = 0
+	}
+}
 
 // セットのコピーを返す
-func (*IntSet) Copy() *IntSet
+func (s *IntSet) Copy() *IntSet {
+	var c IntSet
+	for i := 0; i < len(s.words); i++ {
+		c.words = append(c.words, s.words[i])
+	}
+	return &c
+}
