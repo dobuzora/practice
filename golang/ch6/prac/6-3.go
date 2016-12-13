@@ -1,5 +1,5 @@
 // (*IntSet).UnionWithはワード単位のビット和算子である|を使って日経つのセットの和集合を計算している。セット操作に対応するメソッドIntersectWith,DifferenceWith,SymmetricDifferenceを実装しなさい
-package intset
+package prac
 
 import (
 	"bytes"
@@ -55,3 +55,9 @@ func (s *IntSet) String() string {
 	buf.WriteByte('}')
 	return buf.String()
 }
+
+//func (s *IntSet) IntersectWith
+
+//func (s *IntSet) DifferenceWith
+
+//func (s *IntSet) SymmetricDifference
