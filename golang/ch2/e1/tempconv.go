@@ -15,4 +15,4 @@ const (
 
 func (c Celsius) String() string    { return fmt.Sprintf("%g℃ ", c) }
 func (f Fahrenheit) String() string { return fmt.Sprintf("%g℉ ", f) }
-func (k Kelvin) String() string     { return fmt.Sprintf("%gK", k) } // 関数
+func (k Kelvin) String() string     { return fmt.Sprintf("%gK", k) }
