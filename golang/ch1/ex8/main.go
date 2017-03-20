@@ -14,7 +14,7 @@ func main() {
 	prefix := "http://"
 	for _, url := range os.Args[1:] {
 		if !strings.HasPrefix(url, prefix) {
-			url = "http://" + url
+			url = prefix + url
 		}
 		resp, err := http.Get(url)
 		if err != nil {
