@@ -26,10 +26,19 @@ func main() {
 		}
 	}
 	if fcounts != nil {
-		for filename, counts := range fcounts {
-			for lines, n := range counts {
-				if n > 1 {
-					fmt.Printf("%s %d %s\n", filename, n, lines)
+		fmt.Println(fcounts["test/fruit1"])
+		fmt.Println(fcounts["test/fruit2"])
+		fmt.Println(fcounts["test/fruit3"])
+		fmt.Println("\n------------------------\n")
+		for k, v := range counts {
+			if v > 1 {
+				fmt.Printf("%s : %d\n", k, v)
+				for file, _ := range fcounts {
+					for i, _ := range fcounts[file] {
+						if k == i {
+							fmt.Println(file)
+						}
+					}
 				}
 			}
 		}
@@ -46,10 +55,11 @@ func main() {
 
 func countLines(f *os.File, counts map[string]int, fcounts map[string]map[string]int) {
 	input := bufio.NewScanner(f)
+	ele := make(map[string]int)
 	for input.Scan() {
-		counts[input.Text()]++
-		if fcounts != nil {
-			fcounts[f.Name()] = counts
-		}
+		s := input.Text()
+		counts[s]++
+		ele[s]++
 	}
+	fcounts[f.Name()] = ele
 }
