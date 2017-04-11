@@ -10,7 +10,7 @@ func Example_one() {
 	x.AddAll(5, 1, 7, 8)
 	fmt.Println(x.String()) // {1 3 5 7 8}
 
-	// :Output
+	// Output:
 	// {3}
 	// {1 3 5 7 8}
 }
