@@ -4,6 +4,7 @@ package intset
 import (
 	"bytes"
 	"fmt"
+	"strconv"
 )
 
 type IntSet struct {
@@ -33,6 +34,24 @@ func (s *IntSet) UnionWith(t *IntSet) {
 			s.words = append(s.words, tword)
 		}
 	}
+}
+
+// Elems returns the slice of set.
+func (s *IntSet) Elems() []int {
+	var elems []int
+	for i, word := range s.words {
+		if word == 0 {
+			continue
+		}
+		for j := 0; j < 64; j++ {
+			if word&(1<<uint(j)) != 0 {
+				num, _ := strconv.Atoi(fmt.Sprintf("%d", 64*i+j))
+				elems = append(elems, num)
+			}
+		}
+	}
+
+	return elems
 }
 
 // String returns the set as a string of the form "{1 2 3}"
