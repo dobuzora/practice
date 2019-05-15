@@ -14,7 +14,7 @@ int selectionSort(int A[], int N) {
 }
 
 int main() {
-    int A[100], N, i, sw;
+    int A[10000], N, i, sw;
 
     scanf("%d", &N);
     for ( i = 0; i < N; i++) scanf("%d", &A[i]);

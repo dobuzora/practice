@@ -19,18 +19,18 @@ void insertionSort(int A[], int N) {
             j--;
         }
         A[j + 1] = v;
-        trace(A,N);
+        // trace(A,N);
     }
 }
 
 int main() {
     int N, i ,j;
-    int A[100];
+    int A[1000000];
 
     scanf("%d", &N);
     for (i = 0; i < N; i++) scanf("%d", &A[i]);
 
-    trace(A,N);
+    // trace(A,N);
     insertionSort(A,N);
 
     return 0;
