@@ -1,0 +1,1 @@
+originalRepeat n = cycle [n]
